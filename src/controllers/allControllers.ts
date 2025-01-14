@@ -186,4 +186,23 @@ export class AllControllers {
       res.status(500).json({err})
     }
   }
+
+  static async renameItem(req:Request,res:Response){
+    try {
+      //@ts-ignore
+      const { itemId } = req.params;
+      const { name } = req.body;
+      await prisma.item.update({
+        where:{
+          id:Number(itemId)
+        },
+        data:{
+          name
+        }
+      })
+      res.status(200).json({message:'Item renamed'})
+    }catch(err){
+      res.status(500).json({err})
+    }
+  }
 }
