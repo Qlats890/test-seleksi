@@ -10,6 +10,15 @@ routers.post('/login',AllControllers.login)
 routers.get('/checklist',JWTCheck.check,AllControllers.getChecklist)
 routers.post('/checklist',JWTCheck.check,AllControllers.createChecklist)
 routers.delete('/checklist/:id',JWTCheck.check,AllControllers.deleteChecklist)
+
+routers.get('/checklist/:id/item',JWTCheck.check,AllControllers.getItem)
+routers.post('/checklist/:id/item',JWTCheck.check,AllControllers.createItem)
+routers.get('/checklist/:id/item/:itemId',JWTCheck.check,AllControllers.getItemById)
+routers.put('/checklist/:id/item/:itemId',JWTCheck.check,AllControllers.updateItem)
+routers.delete('/checklist/:id/item/:itemId',JWTCheck.check,AllControllers.deleteItem)
+
+routers.put('/checklist/:id/item/rename/:itemId',JWTCheck.check,AllControllers.renameItem)
+
 export{
   routers
 }
